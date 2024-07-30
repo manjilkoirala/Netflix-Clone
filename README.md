@@ -1,6 +1,3 @@
-Sure, here's a simple `README.md` template for your Netflix clone project using Next.js, Next-Auth, and Tailwind CSS:
-
-```markdown
 # Netflix Clone
 
 This is a Netflix clone built using Next.js, Next-Auth for authentication, and Tailwind CSS for styling.
@@ -89,6 +86,3 @@ Contributions are welcome! Please fork the repository and open a pull request wi
 ## License
 
 This project is licensed under the MIT License.
-```
-
-Feel free to customize this template to better fit your project's specific details and requirements.
