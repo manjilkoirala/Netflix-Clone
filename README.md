@@ -44,14 +44,14 @@ npm install
 yarn install
 ```
 
-### Environment Variables
+<!-- ### Environment Variables
 
 Create a `.env.local` file in the root of your project and add the following environment variables:
 
 ```
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-secret-key
-```
+``` -->
 
 ### Running the Development Server
 
