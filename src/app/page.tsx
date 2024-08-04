@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth";
 import Login from "@/components/Login";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Navbar from "@/components/Navbar";
 import requests from "@/utils/request"; // Adjust the path as necessary
 import Hero from "@/components/Hero";
+import Row from "@/components/Row";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -34,6 +34,15 @@ export default async function Home() {
     <>
       <main className="relative bg-gradient-to-b from-gray-900/10 to-[#010511]">
         <Hero moviePosters={moviePosters} />
+        <section className="container pb-32">
+          <Row title="Trending Now" movies={trending.results} />
+          <Row title="Top Rated" movies={topRated.results} />
+          <Row title="Action Movies" movies={actionMovies.results} />
+          <Row title="Comedy Movies" movies={comedyMovies.results} />
+          <Row title="Horror Movies" movies={horrorMovies.results} />
+          <Row title="Romance Movies" movies={romanceMovies.results} />
+          <Row title="Documentaries" movies={documentaries.results} />
+        </section>
       </main>
     </>
   );

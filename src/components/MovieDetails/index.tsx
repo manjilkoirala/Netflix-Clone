@@ -23,9 +23,9 @@ const MovieDetails = ({
     <>
       <Navbar />
 
-      <div className="container">
-        <div className="flex flex-col space-y-2 py-16 md:space-y-4 h-screen justify-center lg:pb-12">
-          <div className="absolute top-0 left-0 -z-10 h-screen w-screen">
+      <div className="container ">
+        <div className="flex flex-col space-y-2 py-16 md:space-y-4 h-screen justify-center lg:pb-12 ">
+          <div className="absolute top-0 left-0 -z-10 h-screen w-screen ">
             {movie && (
               <Image
                 alt="movie"
@@ -69,7 +69,7 @@ const MovieDetails = ({
               className="cursor-pointer w-8 h-8 flex justify-center items-center rounded-lg opacity-50 hover:opacity-75 hover:bg-[#0f0f0f]"
               onClick={() => setShowPlayer(false)}
             >
-              <AiOutlineClose className="w-4 h-4" />
+              <AiOutlineClose className="w-6 h-6" />
             </div>
           </div>
           <div className="relative pt-[56.25%]">
