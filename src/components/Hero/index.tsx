@@ -8,18 +8,41 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ moviePosters }: any) => {
   const [movie, setMovie] = useState(null);
+  const [showPlayer, setShowPlayer] = useState(false);
+  const [trailer, setTrailer] = useState<string | null>(null);
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * moviePosters.results.length);
+    const randomMovie =
+      moviePosters.results[
+        Math.floor(Math.random() * moviePosters.results.length)
+      ];
 
-    const randomMovie = moviePosters.results[randomIndex];
-    console.log("randomMovie", randomMovie);
+    //fetch tailerurl
+
+    fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${randomMovie.id}?api_key=${process.env.NEXT_PUBLIC_API_Key}&append_to_response=videos`
+    )
+      .then((res: any) => res.json())
+      .then((data: any) => {
+        const trailerIndex = data.videos.results.findIndex(
+          (video: any) => video.type === "Trailer"
+        );
+
+        const trailerURL = `https://www.youtube.com/watch?v=${data.videos.results[trailerIndex]?.key}`;
+        setTrailer(trailerURL);
+      });
+
     setMovie(randomMovie);
   }, [moviePosters]);
 
   return (
     <div>
-      <MovieDetails movie={movie} />
+      <MovieDetails
+        movie={movie}
+        showPlayer={showPlayer}
+        setShowPlayer={setShowPlayer}
+        trailerURL={trailer}
+      />
     </div>
   );
 };
